@@ -21,6 +21,7 @@ jobs:
       - name: Install Dependencies
         run: |
           pip install discord.py
+          pip install pynacl
           # asyncio و time از پکیج های استاندارد پایتون هستن؛ نیازی به نصب جداگانه ندارن.
 
       - name: Run Bot
