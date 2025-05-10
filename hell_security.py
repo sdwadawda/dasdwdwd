@@ -11,7 +11,7 @@ import os
 intents = discord.Intents.default()
 intents.message_content = True  
 intents.members = True
-bot = commands.Bot(command_prefix="!" , intents=intents)
+bot = commands.Bot(command_prefix="H!" , intents=intents)
 
 token = os.getenv("DISCORD_TOKEN")
 
@@ -86,7 +86,7 @@ async def on_member_remove(member):
         if entry.user and entry.user != bot.user:
             if entry.user.top_role < member.guild.me.top_role:
                 try:
-                    await member.guild.kick(entry.user, reason="H O M E  ⛩  H E L L Security iS HeRe [kick]")
+                    await member.guild.kick(entry.user, reason="AmirAlone Goft Kos Madaret Heri Biron [kick]")
                 except Exception as e:
                     print(f"Failed to kick: {e}")
 
@@ -98,7 +98,7 @@ SPAM_THRESHOLD = 9
 async def on_ready():
     print(f"Logged in as {bot.user}")
     stream_status = discord.Streaming(
-        name="discord.gg/fars | H O M E  ⛩  H E L L",
+        name="discord.gg/fars",
         url="https://twitch.tv/homehell",
     )
     await bot.change_presence(activity=stream_status)
@@ -107,7 +107,7 @@ async def on_ready():
 async def mute_user(guild, member):
     mute_role = discord.utils.get(guild.roles, name="Mute")
     if not mute_role:
-        mute_role = await guild.create_role(name="Mute", reason="H O M E  ⛩  H E L L Security iS HeRe [spam]")
+        mute_role = await guild.create_role(name="Mute", reason="AmirAlone Goft Spam Nade Bache Jan [spam]")
         for channel in guild.channels:
             try:
                 await channel.set_permissions(mute_role, send_messages=False)
@@ -130,7 +130,7 @@ async def on_message(message):
     user_messages[user_id].append(now)
 
     if len(user_messages[user_id]) >= SPAM_THRESHOLD:
-        await message.channel.send(f"{message.author.mention} دفه اخرته اسپم میدی - H O M E  ⛩  H E L L Security iS HeRe [spam?]")
+        await message.channel.send(f"{message.author.mention} AmirAlone Goft Dafe Akharete Spam Midi [spam?]")
         await mute_user(message.guild, message.author)
         user_messages[user_id] = []
     await bot.process_commands(message)
@@ -252,12 +252,12 @@ async def on_voice_state_update(member, before, after):
     if not channel:
         return
     if not before.channel and after.channel:
-        await channel.send(f"🎤 **Joined Voice**\n"
+        await channel.send(f" ⛩ **Joined Voice**\n"
                          f"• User: {member.name}\n"
                          f"• Channel: {after.channel.mention}\n"
                          f"• At: {datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S UTC')}")
     elif before.channel and not after.channel:
-        await channel.send(f"🎤 **Left Voice**\n"
+        await channel.send(f" ⛩ **Left Voice**\n"
                          f"• User: {member.name}\n"
                          f"• Channel: {before.channel.mention}\n"
                          f"• At: {datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S UTC')}")
@@ -265,7 +265,7 @@ async def on_voice_state_update(member, before, after):
     elif before.channel and after.channel and before.channel != after.channel:
         entry = await get_audit_log_entry(member.guild, discord.AuditLogAction.member_move)
         if entry and entry.target.id == member.name:
-            await channel.send(f"🎤 **Moved Between Voice Channels**\n"
+            await channel.send(f" ⛩ **Moved Between Voice Channels**\n"
                              f"• User: {member.name}\n"
                              f"• By: {entry.user.name}\n"
                              f"• From: {before.channel.mention}\n"
@@ -273,7 +273,7 @@ async def on_voice_state_update(member, before, after):
                              f"• Reason: {entry.reason or 'No reason provided'}\n"
                              f"• At: {datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S UTC')}")
         else:
-            await channel.send(f"🎤 **Switched Voice Channels**\n"
+            await channel.send(f" ⛩ **Switched Voice Channels**\n"
                              f"• User: {member.name}\n"
                              f"• From: {before.channel.mention}\n"
                              f"• To: {after.channel.mention}\n"
