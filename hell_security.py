@@ -13,7 +13,7 @@ intents.message_content = True
 intents.members = True
 bot = commands.Bot(command_prefix="!" , intents=intents)
 
-token = "MTE1MzIzODcyNDg1MTgxMDMxNA.G4BkRT.0SoA_CB2idGKz1ePutrmg4WmOyJdrpjvWbtJHo"
+token = os.getenv("DISCORD_TOKEN")
 
 last_checked = {}
 
