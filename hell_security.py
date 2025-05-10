@@ -6,7 +6,7 @@ from datetime import datetime
 import discord
 import asyncio
 import time
-import asyncio
+import os
 
 intents = discord.Intents.default()
 intents.message_content = True  
